@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgnt6dbsli828"]
+[gd_scene load_steps=9 format=3 uid="uid://cgnt6dbsli828"]
 
 [ext_resource type="Script" path="res://scenes/happyMap/happyMap.gd" id="1_pwxad"]
 [ext_resource type="Texture2D" uid="uid://cjgdyvwakn2tf" path="res://assets/map/testBackground.png" id="1_qsdj4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b0xklad5u4xed" path="res://assets/map/1907794_6ad25.png" id="3_gwop2"]
 [ext_resource type="Texture2D" uid="uid://dhfoc4s2hemrh" path="res://assets/map/de14fr4-27504ed6-f49a-4061-b797-b44516378361.jpg" id="4_xyglm"]
 [ext_resource type="Texture2D" uid="uid://dt2ency68lhb6" path="res://assets/map/Paristanbul.jpg" id="5_1rtw6"]
+[ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/Player.tscn" id="7_j7re3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vgge"]
 size = Vector2(786.453, 1156.1)
@@ -60,3 +61,6 @@ texture = ExtResource("5_1rtw6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kebab/Area2D"]
 position = Vector2(132.838, -8.87958)
 shape = SubResource("RectangleShape2D_6vgge")
+
+[node name="Player" parent="." instance=ExtResource("7_j7re3")]
+position = Vector2(136, 244)

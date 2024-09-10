@@ -16,6 +16,7 @@ func _input(_event):
 		%AnimationPlayer.play("Run")
 		%AnimationPlayer.seek(0, true)
 		%AnimationPlayer.pause()
+		%Camera2D.limit_right = 18785
 		
 func _physics_process(delta):
 	if(!farnting_and_pooping):
