@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfww0b8wfgw8c"]
+
+[ext_resource type="PackedScene" uid="uid://cgnt6dbsli828" path="res://scenes/happyMap/happyMap.tscn" id="1_gxvxm"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_l6h5b"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_l6h5b")
+
+[node name="HappyMap" parent="." instance=ExtResource("1_gxvxm")]
