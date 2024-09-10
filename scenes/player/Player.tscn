@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://cpo0yikpco8rr"]
+[gd_scene load_steps=2 format=3 uid="uid://cpo0yikpco8rr"]
+
+[ext_resource type="Texture2D" uid="uid://xb2i0wncid70" path="res://assets/alt-sword.png" id="1_vqhad"]
 
 [node name="Player" type="CharacterBody2D"]
+
+[node name="Alt-sword" type="Sprite2D" parent="."]
+position = Vector2(219, 395)
+texture = ExtResource("1_vqhad")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(297, 358)
+zoom = Vector2(2.58, 2.58)
