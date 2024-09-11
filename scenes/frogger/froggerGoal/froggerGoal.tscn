@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs6nkifnhsgfo"]
+
+[ext_resource type="Script" path="res://scenes/frogger/froggerGoal/froggerGoal.gd" id="1_d4tkk"]
+[ext_resource type="Texture2D" uid="uid://dsgq38pynurym" path="res://assets/icon.svg" id="2_ahkte"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qbef"]
+size = Vector2(128, 128)
+
+[node name="FroggerGoal" type="Area2D"]
+scale = Vector2(2.705, 1)
+script = ExtResource("1_d4tkk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ahkte")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_5qbef")
