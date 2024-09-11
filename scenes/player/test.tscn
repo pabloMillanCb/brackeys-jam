@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6ysb1aq1mvg5"]
 
 [ext_resource type="Texture2D" uid="uid://bg6oyxoqmnnqx" path="res://assets/fondo.jpg" id="1_q0wtn"]
-[ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/player.tscn" id="2_bd0hi"]
+[ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/Player.tscn" id="2_bd0hi"]
 
 [node name="Node2D" type="Node2D"]
 
