@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
+const MAX_SPEED = 2000.0
+const IMPULSE = 400.0
+const DECELERATION = 3600.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,9 +39,10 @@ func _physics_process(delta):
 func start_pooping():
 	farnting_and_pooping = !farnting_and_pooping
 	%AnimationPlayer.play("Run")
-	%AnimationPlayer.seek(0, true)
-	%AnimationPlayer.pause()
 	%Camera2D.limit_right = 18785
+	%Camera2D.position_smoothing_enabled = true
+	%Camera2D.position.x = -300
+	%Sprite2D.flip_h = true
 
 func walk_controls(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -56,35 +60,18 @@ func walk_controls(delta):
 	move_and_slide()
 	
 func fart_and_poop_controls(delta):
-	timer += delta
-	print(value/timer)
-	if(timer > 2):
-		timer = 0
-		value = 0
-	%Camera2D.position_smoothing_enabled = true
-	%Camera2D.position.x = -300
-	%Sprite2D.flip_h = true
-	var pressed = Input.get_axis("ui_left", "ui_right")
-	if pressed && foot == 2:
-		foot = pressed
-		foot = foot*-1
-	if pressed == 1 && foot == -1:
-		velocity.x = -SPEED*10
-		move_and_slide()
-		foot = foot*-1
-		value += 1
-		%AnimationPlayer.seek(0, true)
-		%AnimationPlayer.pause()
-	if pressed == -1 && foot == 1:
-		velocity.x = -SPEED*10
-		move_and_slide()
-		foot = foot*-1
-		value += 1
-		%AnimationPlayer.seek(0.15, true)
-		%AnimationPlayer.pause()
+	if (Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_right')):
+		velocity.x -= IMPULSE
+		print('a')
+	velocity.x += DECELERATION*delta
+	velocity.x = clampf(velocity.x, -MAX_SPEED, 0)
 	
-	velocity.x = 0
-
+	if (velocity.x < -1000):
+		%AnimationPlayer.play("Max run")
+	else:
+		%AnimationPlayer.play("Run")
+	
+	move_and_slide()
 
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == 'Eat'):

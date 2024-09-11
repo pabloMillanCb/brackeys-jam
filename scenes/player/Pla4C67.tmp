@@ -186,6 +186,7 @@ size = Vector2(104, 180)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
+collision_mask = 3
 script = ExtResource("1_plctu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -194,6 +195,7 @@ texture_filter = 1
 texture = ExtResource("2_8ujv3")
 hframes = 5
 vframes = 4
+frame = 13
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
