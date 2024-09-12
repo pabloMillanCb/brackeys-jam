@@ -8,3 +8,5 @@ signal exit_kebab
 signal eating_starting
 signal exit_home
 signal enter_home
+signal froggerDeath;
+signal froggerEnd;

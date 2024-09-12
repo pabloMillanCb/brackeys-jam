@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg6oyxoqmnnqx"
-path="res://.godot/imported/fondo.jpg-7066922f36aa8df68a6c13adfc30932a.ctex"
+uid="uid://ctpj8sn5uyy4r"
+path="res://.godot/imported/froggerplayer.png-ff16565e6b351fb9bbdccce641e58a79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondo.jpg"
-dest_files=["res://.godot/imported/fondo.jpg-7066922f36aa8df68a6c13adfc30932a.ctex"]
+source_file="res://assets/frogger/froggerplayer.png"
+dest_files=["res://.godot/imported/froggerplayer.png-ff16565e6b351fb9bbdccce641e58a79.ctex"]
 
 [params]
 
