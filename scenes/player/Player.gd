@@ -8,7 +8,7 @@ const DECELERATION = 4000.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var farnting_and_pooping = false
+@export var farnting_and_pooping = false
 var foot = 2
 var timer = 0
 var value = 0
@@ -26,6 +26,14 @@ func _ready():
 	SignalManager.exit_kebab.connect(func():
 		visible = true
 		%AnimationPlayer.play("Eat"))
+	SignalManager.exit_home.connect(func():
+		visible = true
+		playable = true
+		)
+		
+	if (!farnting_and_pooping):
+		visible = false
+		playable = false
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_C):

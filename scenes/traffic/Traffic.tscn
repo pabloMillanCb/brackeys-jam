@@ -20,7 +20,7 @@ texture = ExtResource("1_innoh")
 texture = ExtResource("2_iweds")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 3
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 unique_name_in_owner = true
