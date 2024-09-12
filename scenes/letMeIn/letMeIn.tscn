@@ -1,39 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://cceqm1jimlkqc"]
 
 [ext_resource type="Script" path="res://scenes/letMeIn/letMeIn.gd" id="1_x430j"]
-[ext_resource type="Texture2D" uid="uid://gd6gsrtuejsu" path="res://assets/lock_PoopGame.png" id="2_2a2nl"]
-[ext_resource type="Texture2D" uid="uid://qfx6q3b04ain" path="res://assets/map/purepng.com-keys-on-handkeysmetal-keyskeys-for-lockskey-rings-1421526578206euem1.png" id="3_4qr8k"]
+[ext_resource type="Texture2D" path="res://assets/lock_PoopGame.png" id="2_2a2nl"]
+[ext_resource type="Texture2D" path="res://assets/map/purepng.com-keys-on-handkeysmetal-keyskeys-for-lockskey-rings-1421526578206euem1.png" id="3_4qr8k"]
 [ext_resource type="Script" path="res://scenes/letMeIn/hand.gd" id="4_gjml8"]
 [ext_resource type="AudioStream" uid="uid://dcnvfnbgb0dio" path="res://assets/sounds/metal-whoosh-hit-10-202176.mp3" id="5_v732t"]
 [ext_resource type="AudioStream" uid="uid://2jptkjltecnp" path="res://assets/sounds/fart-83471.mp3" id="6_8xhdn"]
 [ext_resource type="Texture2D" uid="uid://dk8adybi23khe" path="res://scenes/letMeIn/lock_PoopGame_1.png" id="6_vcpsy"]
-
-[sub_resource type="Animation" id="Animation_7180s"]
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("keyHole:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("keyHole:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
 
 [sub_resource type="Animation" id="Animation_6won2"]
 length = 0.2
@@ -63,18 +36,12 @@ tracks/1/keys = {
 "values": [2, 3]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2j5r"]
-_data = {
-"Depierto": SubResource("Animation_6won2"),
-"Dormido": SubResource("Animation_7180s")
-}
-
-[sub_resource type="Animation" id="Animation_olsoo"]
+[sub_resource type="Animation" id="Animation_7180s"]
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("keyhole2:visible")
+tracks/0/path = NodePath("keyHole:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -86,7 +53,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("keyhole2:frame")
+tracks/1/path = NodePath("keyHole:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -94,6 +61,12 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f2j5r"]
+_data = {
+"Depierto": SubResource("Animation_6won2"),
+"Dormido": SubResource("Animation_7180s")
 }
 
 [sub_resource type="Animation" id="Animation_ebj4i"]
@@ -122,6 +95,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_olsoo"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("keyhole2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("keyhole2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q8aok"]
@@ -161,6 +161,7 @@ scale = Vector2(0.891, 1)
 texture = ExtResource("2_2a2nl")
 hframes = 2
 vframes = 2
+frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -206,6 +207,7 @@ scale = Vector2(0.891, 1)
 texture = ExtResource("6_vcpsy")
 hframes = 2
 vframes = 2
+frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
