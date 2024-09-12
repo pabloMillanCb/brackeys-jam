@@ -1,15 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgnt6dbsli828"]
+[gd_scene load_steps=8 format=3 uid="uid://cgnt6dbsli828"]
 
 [ext_resource type="Script" path="res://scenes/happyMap/happyMap.gd" id="1_pwxad"]
 [ext_resource type="Texture2D" uid="uid://cjgdyvwakn2tf" path="res://assets/map/testBackground.png" id="1_qsdj4"]
-[ext_resource type="Texture2D" uid="uid://c8xeh0o1ucp3w" path="res://assets/map/testHouse.png" id="2_ouctp"]
-[ext_resource type="Texture2D" uid="uid://b0xklad5u4xed" path="res://assets/map/1907794_6ad25.png" id="3_gwop2"]
-[ext_resource type="Texture2D" uid="uid://dhfoc4s2hemrh" path="res://assets/map/de14fr4-27504ed6-f49a-4061-b797-b44516378361.jpg" id="4_xyglm"]
-[ext_resource type="Texture2D" uid="uid://dt2ency68lhb6" path="res://assets/map/Paristanbul.jpg" id="5_1rtw6"]
 [ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/Player.tscn" id="7_j7re3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vgge"]
-size = Vector2(786.453, 1156.1)
+[ext_resource type="PackedScene" uid="uid://bjqcs1abavllx" path="res://scenes/home/Home.tscn" id="7_ocdyr"]
+[ext_resource type="PackedScene" uid="uid://cdgn4enx2cdbq" path="res://scenes/kebab/Kebab.tscn" id="8_cf483"]
+[ext_resource type="PackedScene" uid="uid://cfon43fbqoo35" path="res://scenes/dogHome/DogHome.tscn" id="8_pevhq"]
+[ext_resource type="PackedScene" uid="uid://c2fx1mfojm5cm" path="res://scenes/traffic/Traffic.tscn" id="9_c1k5i"]
 
 [node name="HappyMap" type="Node2D"]
 script = ExtResource("1_pwxad")
@@ -19,48 +16,17 @@ position = Vector2(3260.5, 322.5)
 scale = Vector2(10.4169, 2.61382)
 texture = ExtResource("1_qsdj4")
 
-[node name="Home" type="Sprite2D" parent="."]
-position = Vector2(187, 328)
-texture = ExtResource("2_ouctp")
-
-[node name="Area2D" type="Area2D" parent="Home"]
-position = Vector2(-1, -4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Home/Area2D"]
-position = Vector2(21, -5)
-shape = SubResource("RectangleShape2D_6vgge")
-
-[node name="dog" type="Sprite2D" parent="."]
-position = Vector2(1925, 317)
-texture = ExtResource("3_gwop2")
-
-[node name="Area2D" type="Area2D" parent="dog"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dog/Area2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_6vgge")
-
-[node name="semaphore" type="Sprite2D" parent="."]
-position = Vector2(3869, 333)
-scale = Vector2(0.953052, 1)
-texture = ExtResource("4_xyglm")
-
-[node name="Area2D" type="Area2D" parent="semaphore"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="semaphore/Area2D"]
-position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_6vgge")
-
-[node name="kebab" type="Sprite2D" parent="."]
-position = Vector2(6125.5, 326.5)
-scale = Vector2(0.662469, 0.563098)
-texture = ExtResource("5_1rtw6")
-
-[node name="Area2D" type="Area2D" parent="kebab"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="kebab/Area2D"]
-position = Vector2(132.838, -8.87958)
-shape = SubResource("RectangleShape2D_6vgge")
-
 [node name="Player" parent="." instance=ExtResource("7_j7re3")]
-position = Vector2(136, 244)
+position = Vector2(264, 349)
+
+[node name="Kebab" parent="." instance=ExtResource("8_cf483")]
+position = Vector2(5957, 289)
+
+[node name="Traffic" parent="." instance=ExtResource("9_c1k5i")]
+position = Vector2(3814, 297)
+
+[node name="DogHome" parent="." instance=ExtResource("8_pevhq")]
+position = Vector2(1905, 298)
+
+[node name="Home" parent="." instance=ExtResource("7_ocdyr")]
+position = Vector2(534, 285)
