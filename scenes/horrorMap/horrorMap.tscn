@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dalhdrebwvkyp"]
+[gd_scene load_steps=8 format=3 uid="uid://dalhdrebwvkyp"]
 
 [ext_resource type="Texture2D" uid="uid://cjgdyvwakn2tf" path="res://assets/map/testBackground.png" id="1_xbpgh"]
 [ext_resource type="Texture2D" uid="uid://c8xeh0o1ucp3w" path="res://assets/map/testHouse.png" id="2_y1t0w"]
 [ext_resource type="Texture2D" uid="uid://b0xklad5u4xed" path="res://assets/map/1907794_6ad25.png" id="3_qw6cn"]
 [ext_resource type="Texture2D" uid="uid://dhfoc4s2hemrh" path="res://assets/map/de14fr4-27504ed6-f49a-4061-b797-b44516378361.jpg" id="4_3shbh"]
 [ext_resource type="Texture2D" uid="uid://dt2ency68lhb6" path="res://assets/map/Paristanbul.jpg" id="5_ycily"]
+[ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/Player.tscn" id="6_y3kpq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vgge"]
 size = Vector2(786.453, 1156.1)
@@ -58,3 +59,6 @@ texture = ExtResource("5_ycily")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kebab/Area2D"]
 position = Vector2(132.838, -8.87958)
 shape = SubResource("RectangleShape2D_6vgge")
+
+[node name="Player" parent="." instance=ExtResource("6_y3kpq")]
+position = Vector2(18599, 263)

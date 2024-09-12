@@ -138,5 +138,5 @@ shape = SubResource("RectangleShape2D_l810u")
 unique_name_in_owner = true
 position = Vector2(300, 0)
 limit_left = 0
-limit_right = 2000
+limit_right = 6520
 limit_smoothed = true
