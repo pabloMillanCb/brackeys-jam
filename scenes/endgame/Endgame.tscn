@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg5sek56pt8bb"]
+[gd_scene load_steps=13 format=3 uid="uid://cg5sek56pt8bb"]
 
 [ext_resource type="Script" path="res://scenes/endgame/Endgame.gd" id="1_msk27"]
 [ext_resource type="Texture2D" uid="uid://chny2vr615djg" path="res://assets/cagar.png" id="2_f5hia"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bgca7mxrgg2xp" path="res://assets/ode_to_joy.mp3" id="3_35flk"]
 [ext_resource type="AudioStream" uid="uid://cwobrva70qkqe" path="res://assets/final_fart.mp3" id="4_xr517"]
 [ext_resource type="AudioStream" uid="uid://bc86acng7o4tg" path="res://assets/clank.mp3" id="5_6rxxa"]
+[ext_resource type="AudioStream" uid="uid://c34acbltkoa5m" path="res://assets/bomb.mp3" id="7_n842a"]
 
 [sub_resource type="Animation" id="Animation_ssrqk"]
 length = 0.2
@@ -144,8 +145,37 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_oyqlt"]
+resource_name = "begin"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Black:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyhkh"]
 _data = {
+"begin": SubResource("Animation_oyqlt"),
 "caca1": SubResource("Animation_ssrqk"),
 "caca2": SubResource("Animation_3t3w0"),
 "caca3": SubResource("Animation_ewv0y")
@@ -194,7 +224,7 @@ limit_smoothed = true
 libraries = {
 "": SubResource("AnimationLibrary_hyhkh")
 }
-autoplay = "caca1"
+autoplay = "begin"
 
 [node name="Song" type="Timer" parent="."]
 wait_time = 0.8
@@ -215,12 +245,16 @@ stream = ExtResource("4_xr517")
 volume_db = 10.0
 
 [node name="Black" type="ColorRect" parent="."]
-visible = false
+modulate = Color(0, 0, 0, 1)
 offset_right = 1108.0
 offset_bottom = 807.0
 color = Color(0, 0, 0, 1)
 
 [node name="Clank" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_6rxxa")
+
+[node name="Bomb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_n842a")
+volume_db = -5.0
 
 [connection signal="timeout" from="Song" to="." method="_on_song_timeout"]

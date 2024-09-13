@@ -88,6 +88,7 @@ func win_game():
 
 func play_final_fart():
 	$FinalFart.play()
+	$Bomb.play()
 
 func show_credits():
 	$Black.visible = true
