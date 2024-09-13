@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bvakh2ln42fc5"]
 
 [ext_resource type="Script" path="res://scenes/frogger/froggerPlayer/froggerPlayer.gd" id="1_1atpn"]
-[ext_resource type="Texture2D" uid="uid://ctpj8sn5uyy4r" path="res://assets/frogger/froggerplayer.png" id="2_cedtm"]
+[ext_resource type="Texture2D" uid="uid://b1mjgv65m76gf" path="res://assets/froggerplayer.png" id="2_2mahi"]
 [ext_resource type="AudioStream" uid="uid://sgxncjng37ik" path="res://assets/frogger/fart-with-reverb.mp3" id="3_k85dp"]
 
 [sub_resource type="Animation" id="Animation_3p0t3"]
@@ -135,7 +135,7 @@ unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0, 19)
 scale = Vector2(2, 2)
-texture = ExtResource("2_cedtm")
+texture = ExtResource("2_2mahi")
 hframes = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
@@ -153,7 +153,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "288f8e1af3540d47ccc0225f227e962d"
+metadata/_aseprite_wizard_source_file_hash_ = "6f00c502e88c19168e503c3b31801d2f"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 unique_name_in_owner = true
