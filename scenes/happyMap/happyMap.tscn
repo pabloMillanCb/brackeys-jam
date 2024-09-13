@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgnt6dbsli828"]
 
 [ext_resource type="Script" path="res://scenes/happyMap/happyMap.gd" id="1_pwxad"]
-[ext_resource type="Texture2D" uid="uid://cjgdyvwakn2tf" path="res://assets/map/testBackground.png" id="1_qsdj4"]
+[ext_resource type="PackedScene" uid="uid://bqyh58cvdh3ds" path="res://scenes/background/Background.tscn" id="7_g5dqv"]
 [ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/Player.tscn" id="7_j7re3"]
 [ext_resource type="PackedScene" uid="uid://bjqcs1abavllx" path="res://scenes/home/Home.tscn" id="7_ocdyr"]
 [ext_resource type="PackedScene" uid="uid://cdgn4enx2cdbq" path="res://scenes/kebab/Kebab.tscn" id="8_cf483"]
@@ -11,22 +11,19 @@
 [node name="HappyMap" type="Node2D"]
 script = ExtResource("1_pwxad")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(3260.5, 322.5)
-scale = Vector2(10.4169, 2.61382)
-texture = ExtResource("1_qsdj4")
-
 [node name="Player" parent="." instance=ExtResource("7_j7re3")]
-position = Vector2(264, 349)
+position = Vector2(264, 504)
 
 [node name="Kebab" parent="." instance=ExtResource("8_cf483")]
-position = Vector2(5957, 289)
+position = Vector2(5957, 444)
 
 [node name="Traffic" parent="." instance=ExtResource("9_c1k5i")]
-position = Vector2(3814, 297)
+position = Vector2(3814, 452)
 
 [node name="DogHome" parent="." instance=ExtResource("8_pevhq")]
-position = Vector2(1905, 298)
+position = Vector2(1905, 453)
 
 [node name="Home" parent="." instance=ExtResource("7_ocdyr")]
-position = Vector2(534, 285)
+position = Vector2(534, 440)
+
+[node name="Background" parent="." instance=ExtResource("7_g5dqv")]
