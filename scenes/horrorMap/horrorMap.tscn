@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dalhdrebwvkyp"]
 
 [ext_resource type="Script" path="res://scenes/horrorMap/horrorMap.gd" id="1_kgcwe"]
-[ext_resource type="Texture2D" uid="uid://cjgdyvwakn2tf" path="res://assets/map/testBackground.png" id="1_xbpgh"]
 [ext_resource type="Texture2D" uid="uid://5wsq78d56p54" path="res://assets/map/kebab_close.png" id="6_1blc0"]
 [ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/Player.tscn" id="6_y3kpq"]
 [ext_resource type="PackedScene" uid="uid://bjqcs1abavllx" path="res://scenes/home/Home.tscn" id="8_8bjr3"]
+[ext_resource type="PackedScene" uid="uid://bqyh58cvdh3ds" path="res://scenes/background/Background.tscn" id="8_hgrga"]
 [ext_resource type="Texture2D" uid="uid://irikmv8gtsyq" path="res://assets/map/dog_house1.png" id="8_kngnq"]
 [ext_resource type="PackedScene" uid="uid://cmllia8wwueoe" path="res://scenes/dog/Dog.tscn" id="8_saaio"]
 [ext_resource type="PackedScene" uid="uid://c2fx1mfojm5cm" path="res://scenes/traffic/Traffic.tscn" id="9_7alnr"]
@@ -17,11 +17,6 @@ size = Vector2(113, 194)
 
 [node name="HorrorMap" type="Node2D"]
 script = ExtResource("1_kgcwe")
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(9397, 325.25)
-scale = Vector2(30, 2.60772)
-texture = ExtResource("1_xbpgh")
 
 [node name="Player" parent="." instance=ExtResource("6_y3kpq")]
 position = Vector2(18251, 504)
@@ -71,6 +66,8 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(237, 649)
 shape = SubResource("RectangleShape2D_gfty2")
+
+[node name="Background" parent="." instance=ExtResource("8_hgrga")]
 
 [connection signal="body_entered" from="semaphore_area" to="." method="_on_semaphore_area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
