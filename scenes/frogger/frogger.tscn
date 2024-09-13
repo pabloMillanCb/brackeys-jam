@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b7wu80aewjkxn"]
 
 [ext_resource type="PackedScene" uid="uid://bvakh2ln42fc5" path="res://scenes/frogger/froggerPlayer/froggerPlayer.tscn" id="1_07smh"]
-[ext_resource type="Texture2D" uid="uid://rqeq4gt31pwt" path="res://assets/frogger/frogger.png" id="1_q3mxr"]
+[ext_resource type="Texture2D" uid="uid://qwhkckvmk4bj" path="res://assets/frogger/frogger.png" id="1_27f8b"]
 [ext_resource type="PackedScene" uid="uid://bs6nkifnhsgfo" path="res://scenes/frogger/froggerGoal/froggerGoal.tscn" id="3_8i1v1"]
 [ext_resource type="PackedScene" uid="uid://dvfwtv8sghjfl" path="res://scenes/frogger/froggerCar/froggerCar.tscn" id="3_w5x3g"]
 
@@ -43,7 +43,7 @@ _data = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(550, 400)
-texture = ExtResource("1_q3mxr")
+texture = ExtResource("1_27f8b")
 hframes = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
@@ -57,7 +57,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "C:/Users/jordi/Downloads/frogger.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "b05bc185f335e5b77e025e445830fa7f"
+metadata/_aseprite_wizard_source_file_hash_ = "e51940e1b48ed3c4264253578cc06242"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {

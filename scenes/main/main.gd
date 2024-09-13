@@ -5,6 +5,7 @@ func _ready():
 	SignalManager.changeMap.connect(change_map_received)
 	SignalManager.froggerStart.connect(frogger_start_received)
 	SignalManager.froggerEnd.connect(frogger_end_received)
+	SignalManager.enter_home.connect(enter_home_received)
 
 func _process(delta):
 	return
@@ -28,3 +29,9 @@ func frogger_end_received():
 	$Frogger.process_mode = Node.PROCESS_MODE_DISABLED
 	$HorrorMap.visible = true
 	$HorrorMap.process_mode = Node.PROCESS_MODE_ALWAYS
+
+func enter_home_received():
+	$HorrorMap.queue_free()
+	# Now we load the next map
+	$LetMeIn.visible = true
+	$LetMeIn.process_mode = Node.PROCESS_MODE_ALWAYS

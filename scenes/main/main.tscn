@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfww0b8wfgw8c"]
+[gd_scene load_steps=6 format=3 uid="uid://bfww0b8wfgw8c"]
 
 [ext_resource type="PackedScene" uid="uid://cgnt6dbsli828" path="res://scenes/happyMap/happyMap.tscn" id="1_gxvxm"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_l6h5b"]
+[ext_resource type="PackedScene" uid="uid://cceqm1jimlkqc" path="res://scenes/letMeIn/letMeIn.tscn" id="3_3i0tk"]
 [ext_resource type="PackedScene" uid="uid://b7wu80aewjkxn" path="res://scenes/frogger/frogger.tscn" id="3_n1h0f"]
 [ext_resource type="PackedScene" uid="uid://dalhdrebwvkyp" path="res://scenes/horrorMap/horrorMap.tscn" id="4_1r75q"]
 
@@ -9,6 +10,10 @@
 script = ExtResource("1_l6h5b")
 
 [node name="HappyMap" parent="." instance=ExtResource("1_gxvxm")]
+
+[node name="LetMeIn" parent="." instance=ExtResource("3_3i0tk")]
+process_mode = 4
+visible = false
 
 [node name="Frogger" parent="." instance=ExtResource("3_n1h0f")]
 process_mode = 4

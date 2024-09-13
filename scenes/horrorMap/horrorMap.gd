@@ -21,7 +21,7 @@ func _on_timer_timeout():
 
 
 func _on_timer_2_timeout():
-	SignalManager.keyStart.emit();
+	SignalManager.enter_home.emit();
 
 
 func _on_home_area_body_entered(body):
