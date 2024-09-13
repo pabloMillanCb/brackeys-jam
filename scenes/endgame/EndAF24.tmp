@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg5sek56pt8bb"]
+
+[ext_resource type="Texture2D" uid="uid://dsgq38pynurym" path="res://assets/icon.svg" id="1_7yrrm"]
+[ext_resource type="Script" path="res://scenes/endgame/Endgame.gd" id="1_msk27"]
+
+[node name="Endgame" type="Node2D"]
+script = ExtResource("1_msk27")
+
+[node name="Toilet" type="Node2D" parent="."]
+
+[node name="ToiletMan" type="Sprite2D" parent="Toilet"]
+position = Vector2(550, 400)
+texture = ExtResource("1_7yrrm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(550, 402)
