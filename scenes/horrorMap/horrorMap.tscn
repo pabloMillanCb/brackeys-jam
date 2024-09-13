@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dalhdrebwvkyp"]
+[gd_scene load_steps=12 format=3 uid="uid://dalhdrebwvkyp"]
 
 [ext_resource type="Script" path="res://scenes/horrorMap/horrorMap.gd" id="1_kgcwe"]
 [ext_resource type="Texture2D" uid="uid://5wsq78d56p54" path="res://assets/map/kebab_close.png" id="6_1blc0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqyh58cvdh3ds" path="res://scenes/background/Background.tscn" id="8_hgrga"]
 [ext_resource type="Texture2D" uid="uid://irikmv8gtsyq" path="res://assets/map/dog_house1.png" id="8_kngnq"]
 [ext_resource type="PackedScene" uid="uid://cmllia8wwueoe" path="res://scenes/dog/Dog.tscn" id="8_saaio"]
+[ext_resource type="PackedScene" uid="uid://di8tgbo3kaggb" path="res://scenes/background/FastBackground.tscn" id="9_5rjdu"]
 [ext_resource type="PackedScene" uid="uid://c2fx1mfojm5cm" path="res://scenes/traffic/Traffic.tscn" id="9_7alnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vgge"]
@@ -52,6 +53,7 @@ texture = ExtResource("8_kngnq")
 
 [node name="Home" parent="." instance=ExtResource("8_8bjr3")]
 position = Vector2(534, 440)
+calm = false
 
 [node name="home_area" type="Area2D" parent="."]
 position = Vector2(186, 324)
@@ -68,6 +70,9 @@ position = Vector2(237, 649)
 shape = SubResource("RectangleShape2D_gfty2")
 
 [node name="Background" parent="." instance=ExtResource("8_hgrga")]
+
+[node name="Background2" parent="." instance=ExtResource("9_5rjdu")]
+visible = false
 
 [connection signal="body_entered" from="semaphore_area" to="." method="_on_semaphore_area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

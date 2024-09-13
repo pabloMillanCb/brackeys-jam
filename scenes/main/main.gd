@@ -7,6 +7,7 @@ func _ready():
 	SignalManager.froggerEnd.connect(frogger_end_received)
 	SignalManager.enter_home.connect(enter_home_received)
 	SignalManager.keyhole_collided.connect(keyhole_received)
+	SignalManager.init_end.connect(house_entered)
 
 func _process(delta):
 	return
@@ -40,5 +41,12 @@ func enter_home_received():
 func keyhole_received():
 	$LetMeIn.visible = false
 	$LetMeIn.process_mode = Node.PROCESS_MODE_DISABLED
-	$HorrorMap.visible = true
 	$HorrorMap.process_mode = Node.PROCESS_MODE_ALWAYS
+	$HorrorMap/Player.position = Vector2(264, 504)
+	$HorrorMap/Player.playable = false
+	$HorrorMap.visible = true
+	
+func house_entered():
+	var end = preload("res://scenes/endgame/Endgame.tscn").instantiate()
+	$HorrorMap.queue_free()
+	add_child(end)
