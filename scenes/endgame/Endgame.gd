@@ -4,9 +4,9 @@ var progress = 0.0
 var zoom_speed = 0.005
 var zoom_in_max = Vector2(3.0, 3.0)
 var zoom_out_min = Vector2(1.0, 1.0)
-var progress_max = 100
+var progress_max = 100.0
 var key_pressed_time = 0.0
-var zoom_delay = 1
+var zoom_delay = 1.0
 var last_key = ""
 var you_win = false;
 @onready var camera_tween = get_tree().create_tween()
@@ -15,21 +15,26 @@ var you_win = false;
 
 func _process(delta):
 	if !you_win:
+		
+		if (progress > 60.0 and progress < 100.0 and key_pressed_time < zoom_delay/4):
+			$AnimationPlayer.play("caca2")
+		elif (progress > 0 and key_pressed_time < zoom_delay/4):
+			$AnimationPlayer.play("caca1")
+		elif (progress < 100):
+			$AnimationPlayer.stop()
+			
 		handle_input(delta)
 		handle_zoom(delta)
 		handle_progress(delta)
-		
-		if (progress > 60.0 and progress < 100.0):
-			$AnimationPlayer.play("caca2")
 
 func handle_input(delta):
-	if Input.is_action_just_pressed("ui_left") and last_key != "left":
+	if Input.is_action_just_pressed("ui_left"):
 		print(progress)
 		last_key = "left"
 		key_pressed_time = 0.0
 		apply_spring_compression()
 		zoom_in_camera()
-	elif Input.is_action_just_pressed("ui_right") and last_key != "right":
+	elif Input.is_action_just_pressed("ui_right"):
 		last_key = "right"
 		key_pressed_time = 0.0
 		apply_spring_compression()
