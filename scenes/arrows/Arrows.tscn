@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgpav4yp2uke2"]
+
+[ext_resource type="Script" path="res://scenes/arrows/Arrows.gd" id="1_0pbtx"]
+[ext_resource type="Texture2D" uid="uid://dumio5k4ia07f" path="res://assets/arrows.png" id="1_oypjk"]
+
+[sub_resource type="Animation" id="Animation_28dku"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x00h7"]
+_data = {
+"Arrows": SubResource("Animation_28dku")
+}
+
+[node name="Arrows" type="Node2D"]
+script = ExtResource("1_0pbtx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(619, 728)
+texture = ExtResource("1_oypjk")
+hframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "C:/Users/Pablo/Documents/Juego Caca/arrows.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "eef9d4738385570d9142bcacad4884d1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x00h7")
+}
+autoplay = "Arrows"
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+autostart = true

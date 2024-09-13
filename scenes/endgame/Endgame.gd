@@ -14,7 +14,7 @@ var you_win = false;
 @onready var camera = $Camera2D
 
 func _process(delta):
-	if !you_win:
+	if !you_win and !$Black.visible:
 		
 		if (progress > 60.0 and progress < 100.0 and key_pressed_time < zoom_delay/4):
 			$AnimationPlayer.play("caca2")
