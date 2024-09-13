@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 func _ready():
 	SignalManager.froggerDeath.connect(frogger_death_received)
-	SignalManager.froggerEnd.connect(frogger_end_received)
 	
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_left") && position.x > 50 && position.y <= 530 && position.y >= 130:
@@ -18,6 +17,3 @@ func frogger_death_received():
 	position.x = 550
 	position.y = 730
 	%AudioStreamPlayer.play()
-	
-func frogger_end_received():
-	print("sacabao")

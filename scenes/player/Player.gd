@@ -24,16 +24,28 @@ func _ready():
 	SignalManager.reached_kebab.connect(func(): 
 		playable = false)
 	SignalManager.exit_kebab.connect(func():
-		visible = true
-		%AnimationPlayer.play("Eat"))
+		if(!farnting_and_pooping):
+			print("bruh")
+			visible = true
+			%AnimationPlayer.play("Eat")
+		else:
+			farnting_and_pooping = true
+			visible = true
+			playable = true)
 	SignalManager.exit_home.connect(func():
 		visible = true
 		playable = true
 		)
-		
+	SignalManager.froggerStart.connect(func():
+		visible = true
+		playable = true
+		%Camera2D.enabled = false
+		)
 	if (!farnting_and_pooping):
 		visible = false
 		playable = false
+	else:
+		start_pooping()
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_C):
@@ -48,12 +60,11 @@ func _physics_process(delta):
 		
 
 func start_pooping():
-	farnting_and_pooping = !farnting_and_pooping
 	%AnimationPlayer.play("Run")
 	%Camera2D.limit_right = 18785
-	%Camera2D.position_smoothing_enabled = true
 	%Camera2D.position.x = -300
 	%Sprite2D.flip_h = true
+	%Camera2D.position_smoothing_enabled = true
 
 func walk_controls(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -98,7 +109,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == 'Eat'):
 		playable = true
 		print('im finished')
-		start_pooping()
+		SignalManager.changeMap.emit()
 
 func normalize_exponential(value: float, min_value: float, max_value: float, base: float, target_min: float, target_max: float) -> float:
 

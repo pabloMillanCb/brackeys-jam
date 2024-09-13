@@ -10,3 +10,4 @@ signal exit_home
 signal enter_home
 signal froggerDeath;
 signal froggerEnd;
+signal froggerStart;

@@ -233,7 +233,6 @@ position = Vector2(149, -103)
 limit_left = 0
 limit_right = 6520
 limit_smoothed = true
-position_smoothing_enabled = true
 
 [node name="CameraZoomTimer" type="Timer" parent="."]
 wait_time = 0.2
