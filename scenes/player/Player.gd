@@ -65,6 +65,8 @@ func _ready():
 		playable = false
 	else:
 		start_pooping()
+		
+	SignalManager.player_disapear.connect(func(): visible = false)
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_C):

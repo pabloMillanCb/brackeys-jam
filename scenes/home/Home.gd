@@ -4,6 +4,9 @@ extends Node2D
 
 func _ready():
 	$AnimationPlayer.play("House")
+	SignalManager.keyhole_collided.connect(func(): 
+		print("keyholw collided")
+		$AnimationPlayer.play("close_house"))
 	if (calm):
 		$OpenDoorTimer.start()
 
@@ -23,3 +26,9 @@ func _on_exit_timer_timeout():
 
 func _on_close_timer_timeout():
 	$AnimationPlayer.play("House")
+
+func _player_disapear():
+	SignalManager.player_disapear.emit()
+
+func _on_enter_house():
+	SignalManager.init_end.emit()
