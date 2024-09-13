@@ -1,16 +1,226 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg5sek56pt8bb"]
+[gd_scene load_steps=11 format=3 uid="uid://cg5sek56pt8bb"]
 
-[ext_resource type="Texture2D" uid="uid://dsgq38pynurym" path="res://assets/icon.svg" id="1_7yrrm"]
 [ext_resource type="Script" path="res://scenes/endgame/Endgame.gd" id="1_msk27"]
+[ext_resource type="Texture2D" uid="uid://chny2vr615djg" path="res://assets/cagar.png" id="2_f5hia"]
+[ext_resource type="Texture2D" uid="uid://dbko7wkr0lrya" path="res://assets/end_background.png" id="2_waav8"]
+[ext_resource type="AudioStream" uid="uid://bgca7mxrgg2xp" path="res://assets/ode_to_joy.mp3" id="3_35flk"]
+[ext_resource type="AudioStream" uid="uid://cwobrva70qkqe" path="res://assets/final_fart.mp3" id="4_xr517"]
+[ext_resource type="AudioStream" uid="uid://bc86acng7o4tg" path="res://assets/clank.mp3" id="5_6rxxa"]
+
+[sub_resource type="Animation" id="Animation_ssrqk"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Toilet/ToiletMan:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Toilet/ToiletMan:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_3t3w0"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Toilet/ToiletMan:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Toilet/ToiletMan:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ewv0y"]
+length = 5.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Toilet/ToiletMan:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Toilet/ToiletMan:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.85, 1.95, 2.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 4, 5, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Toilet/ToiletMan:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1), Vector2(1.3, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.75, 1), Vector2(0.7, 1), Vector2(0.7, 1), Vector2(1.3, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.85, 1.9, 1.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.92549, 0.92549, 0.92549, 1), Color(0.92549, 0.92549, 0.92549, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.8, 1.85, 1.9, 1.95, 2, 2.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(550, 402), Vector2(580, 402), Vector2(530, 402), Vector2(580, 402), Vector2(530, 402), Vector2(550, 402)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.7, 5.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_final_fart"
+}, {
+"args": [],
+"method": &"show_credits"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hyhkh"]
+_data = {
+"caca1": SubResource("Animation_ssrqk"),
+"caca2": SubResource("Animation_3t3w0"),
+"caca3": SubResource("Animation_ewv0y")
+}
 
 [node name="Endgame" type="Node2D"]
 script = ExtResource("1_msk27")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(550, 404)
+texture = ExtResource("2_waav8")
+
 [node name="Toilet" type="Node2D" parent="."]
 
 [node name="ToiletMan" type="Sprite2D" parent="Toilet"]
-position = Vector2(550, 400)
-texture = ExtResource("1_7yrrm")
+texture_filter = 1
+position = Vector2(568, 439)
+texture = ExtResource("2_f5hia")
+offset = Vector2(38, -75)
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "C:/Users/Pablo/Documents/Juego Caca/cagar.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "1ba49bd2687375b118eeafc7b5d04a25"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(550, 402)
+limit_smoothed = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hyhkh")
+}
+autoplay = "caca1"
+
+[node name="Song" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="EndSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_35flk")
+
+[node name="Credits" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1100.0
+offset_bottom = 802.0
+
+[node name="FinalFart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xr517")
+volume_db = 10.0
+
+[node name="Black" type="ColorRect" parent="."]
+visible = false
+offset_right = 1108.0
+offset_bottom = 807.0
+color = Color(0, 0, 0, 1)
+
+[node name="Clank" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6rxxa")
+
+[connection signal="timeout" from="Song" to="." method="_on_song_timeout"]
