@@ -26,4 +26,4 @@ position = Vector2(1905, 453)
 [node name="Home" parent="." instance=ExtResource("7_ocdyr")]
 position = Vector2(534, 440)
 
-[node name="Background2" parent="." instance=ExtResource("7_g5dqv")]
+[node name="Background" parent="." instance=ExtResource("7_g5dqv")]
