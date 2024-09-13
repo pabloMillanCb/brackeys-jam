@@ -22,7 +22,7 @@ func _on_timer_timeout():
 
 func _on_timer_2_timeout():
 	SignalManager.enter_home.emit();
-
+	$StaticBody2D/CollisionShape2D.disabled = true
 
 func _on_home_area_body_entered(body):
 	$Timer2.start()

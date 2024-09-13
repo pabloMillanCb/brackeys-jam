@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cceqm1jimlkqc"]
+[gd_scene load_steps=20 format=3 uid="uid://cceqm1jimlkqc"]
 
 [ext_resource type="Script" path="res://scenes/letMeIn/letMeIn.gd" id="1_x430j"]
-[ext_resource type="Texture2D" path="res://assets/lock_PoopGame.png" id="2_2a2nl"]
-[ext_resource type="Texture2D" path="res://assets/map/purepng.com-keys-on-handkeysmetal-keyskeys-for-lockskey-rings-1421526578206euem1.png" id="3_4qr8k"]
+[ext_resource type="Texture2D" uid="uid://gd6gsrtuejsu" path="res://assets/lock_PoopGame.png" id="2_2a2nl"]
+[ext_resource type="Texture2D" uid="uid://bmsebusmjjnsn" path="res://assets/sky.png" id="2_w38p5"]
+[ext_resource type="Texture2D" uid="uid://qfx6q3b04ain" path="res://assets/map/purepng.com-keys-on-handkeysmetal-keyskeys-for-lockskey-rings-1421526578206euem1.png" id="3_4qr8k"]
+[ext_resource type="Texture2D" uid="uid://brh4eol1xtgrq" path="res://assets/buildings.png" id="3_pysdu"]
 [ext_resource type="Script" path="res://scenes/letMeIn/hand.gd" id="4_gjml8"]
+[ext_resource type="Texture2D" uid="uid://csfrdlo2xkdy" path="res://assets/house.png" id="4_yeiil"]
 [ext_resource type="AudioStream" uid="uid://dcnvfnbgb0dio" path="res://assets/sounds/metal-whoosh-hit-10-202176.mp3" id="5_v732t"]
 [ext_resource type="AudioStream" uid="uid://2jptkjltecnp" path="res://assets/sounds/fart-83471.mp3" id="6_8xhdn"]
 [ext_resource type="Texture2D" uid="uid://dk8adybi23khe" path="res://scenes/letMeIn/lock_PoopGame_1.png" id="6_vcpsy"]
@@ -142,6 +145,20 @@ size = Vector2(69, 794)
 [node name="LetMeIn" type="Node2D"]
 script = ExtResource("1_x430j")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(550, 400)
+texture = ExtResource("2_w38p5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(905, 288)
+scale = Vector2(2.09625, 2.09625)
+texture = ExtResource("3_pysdu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(534, 1075)
+scale = Vector2(3.07098, 3.07098)
+texture = ExtResource("4_yeiil")
+
 [node name="keyHoleAnim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_f2j5r")
@@ -236,5 +253,10 @@ stream = ExtResource("6_8xhdn")
 stream = ExtResource("5_v732t")
 volume_db = -10.0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="finished" from="Fart" to="hand" method="_on_fart_finished"]
 [connection signal="finished" from="KeyClank" to="hand" method="_on_key_clank_finished"]
+[connection signal="timeout" from="Timer" to="hand" method="_on_timer_timeout"]
