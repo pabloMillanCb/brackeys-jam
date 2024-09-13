@@ -253,5 +253,10 @@ stream = ExtResource("6_8xhdn")
 stream = ExtResource("5_v732t")
 volume_db = -10.0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="finished" from="Fart" to="hand" method="_on_fart_finished"]
 [connection signal="finished" from="KeyClank" to="hand" method="_on_key_clank_finished"]
+[connection signal="timeout" from="Timer" to="hand" method="_on_timer_timeout"]

@@ -6,6 +6,7 @@ func _ready():
 	SignalManager.froggerStart.connect(frogger_start_received)
 	SignalManager.froggerEnd.connect(frogger_end_received)
 	SignalManager.enter_home.connect(enter_home_received)
+	SignalManager.keyhole_collided.connect(keyhole_received)
 
 func _process(delta):
 	return
@@ -31,7 +32,13 @@ func frogger_end_received():
 	$HorrorMap.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func enter_home_received():
-	$HorrorMap.queue_free()
-	# Now we load the next map
+	$HorrorMap.visible = false
+	$HorrorMap.process_mode = Node.PROCESS_MODE_DISABLED
 	$LetMeIn.visible = true
 	$LetMeIn.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func keyhole_received():
+	$LetMeIn.visible = false
+	$LetMeIn.process_mode = Node.PROCESS_MODE_DISABLED
+	$HorrorMap.visible = true
+	$HorrorMap.process_mode = Node.PROCESS_MODE_ALWAYS

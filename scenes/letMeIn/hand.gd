@@ -31,10 +31,10 @@ func _process(delta):
 func _on_area_entered(area):
 	print(area)
 	if area.name == "keyHoleArea":  # If it collides with the keyHole
-		SignalManager.emit_signal("keyhole_collided")  # Emit signal to signal manager
 		move_speed = 0
 		$"../keyHoleAnim".play("Depierto");
 		$"../keyHoleAnim2".play("Depierto");
+		$"../Timer".start()
 	
 	elif area.name == "Area2D":  # If it collides with the other Area2D
 		_reset_position()
@@ -50,3 +50,7 @@ func _trigger_sounds():
 
 func _on_key_clank_finished():
 	$"../Fart".play();
+
+
+func _on_timer_timeout():
+	SignalManager.emit_signal("keyhole_collided")  # Emit signal to signal manager
