@@ -14,3 +14,4 @@ signal froggerStart;
 signal dog_bite
 signal dog_release
 signal keyhole_collided
+signal sakuga_end
