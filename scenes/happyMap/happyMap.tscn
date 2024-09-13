@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgnt6dbsli828"]
+[gd_scene load_steps=9 format=3 uid="uid://cgnt6dbsli828"]
 
 [ext_resource type="Script" path="res://scenes/happyMap/happyMap.gd" id="1_pwxad"]
 [ext_resource type="PackedScene" uid="uid://bqyh58cvdh3ds" path="res://scenes/background/Background.tscn" id="7_g5dqv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqcs1abavllx" path="res://scenes/home/Home.tscn" id="7_ocdyr"]
 [ext_resource type="PackedScene" uid="uid://cdgn4enx2cdbq" path="res://scenes/kebab/Kebab.tscn" id="8_cf483"]
 [ext_resource type="PackedScene" uid="uid://cfon43fbqoo35" path="res://scenes/dogHome/DogHome.tscn" id="8_pevhq"]
+[ext_resource type="PackedScene" uid="uid://cgpav4yp2uke2" path="res://scenes/arrows/Arrows.tscn" id="8_yckgm"]
 [ext_resource type="PackedScene" uid="uid://c2fx1mfojm5cm" path="res://scenes/traffic/Traffic.tscn" id="9_c1k5i"]
 
 [node name="HappyMap" type="Node2D"]
@@ -27,3 +28,6 @@ position = Vector2(1905, 453)
 position = Vector2(534, 440)
 
 [node name="Background" parent="." instance=ExtResource("7_g5dqv")]
+
+[node name="Arrows" parent="." instance=ExtResource("8_yckgm")]
+position = Vector2(-122, 19)

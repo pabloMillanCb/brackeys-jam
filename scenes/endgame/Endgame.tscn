@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cg5sek56pt8bb"]
+[gd_scene load_steps=14 format=3 uid="uid://cg5sek56pt8bb"]
 
 [ext_resource type="Script" path="res://scenes/endgame/Endgame.gd" id="1_msk27"]
 [ext_resource type="Texture2D" uid="uid://chny2vr615djg" path="res://assets/cagar.png" id="2_f5hia"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cwobrva70qkqe" path="res://assets/final_fart.mp3" id="4_xr517"]
 [ext_resource type="AudioStream" uid="uid://bc86acng7o4tg" path="res://assets/clank.mp3" id="5_6rxxa"]
 [ext_resource type="AudioStream" uid="uid://c34acbltkoa5m" path="res://assets/bomb.mp3" id="7_n842a"]
+[ext_resource type="PackedScene" uid="uid://cgpav4yp2uke2" path="res://scenes/arrows/Arrows.tscn" id="8_7qybd"]
 
 [sub_resource type="Animation" id="Animation_oyqlt"]
 resource_name = "begin"
@@ -243,9 +244,10 @@ offset_bottom = 802.0
 stream = ExtResource("4_xr517")
 volume_db = 10.0
 
+[node name="Arrows" parent="." instance=ExtResource("8_7qybd")]
+
 [node name="Black" type="ColorRect" parent="."]
-visible = false
-modulate = Color(0, 0, 0, 1.2517e-06)
+modulate = Color(0, 0, 0, 1)
 offset_right = 1108.0
 offset_bottom = 807.0
 color = Color(0, 0, 0, 1)
