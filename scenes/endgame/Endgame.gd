@@ -72,6 +72,6 @@ func zoom_out_camera():
 func win_game():
 	you_win = true
 	progress = progress_max
-	#var tween = get_tree().create_tween()
-	#tween.tween_property(camera, "zoom", zoom_out_min, 1.0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera, "zoom", zoom_out_min, 1.0)
 	print("You win!")
