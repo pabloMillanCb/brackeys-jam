@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dalhdrebwvkyp"]
+[gd_scene load_steps=10 format=3 uid="uid://dalhdrebwvkyp"]
 
 [ext_resource type="Script" path="res://scenes/horrorMap/horrorMap.gd" id="1_kgcwe"]
 [ext_resource type="Texture2D" uid="uid://cjgdyvwakn2tf" path="res://assets/map/testBackground.png" id="1_xbpgh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1truygnsh138" path="res://assets/map/traffic_red.png" id="5_q02mr"]
 [ext_resource type="Texture2D" uid="uid://5wsq78d56p54" path="res://assets/map/kebab_close.png" id="6_1blc0"]
 [ext_resource type="PackedScene" uid="uid://cv7xwtw3xvx1t" path="res://scenes/player/Player.tscn" id="6_y3kpq"]
+[ext_resource type="PackedScene" uid="uid://cmllia8wwueoe" path="res://scenes/dog/Dog.tscn" id="8_saaio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vgge"]
 size = Vector2(786.453, 1156.1)
@@ -52,11 +53,14 @@ position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_6vgge")
 
 [node name="Player" parent="." instance=ExtResource("6_y3kpq")]
-position = Vector2(18251, 349)
+position = Vector2(8029, 349)
 farnting_and_pooping = true
 
 [node name="KebabClose" type="Sprite2D" parent="."]
 position = Vector2(18237, 289)
 texture = ExtResource("6_1blc0")
+
+[node name="Dog" parent="." instance=ExtResource("8_saaio")]
+position = Vector2(6929, 374)
 
 [connection signal="body_entered" from="semaphore/semaphore_area" to="." method="_on_semaphore_area_body_entered"]

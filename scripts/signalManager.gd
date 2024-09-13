@@ -11,3 +11,5 @@ signal enter_home
 signal froggerDeath;
 signal froggerEnd;
 signal froggerStart;
+signal dog_bite
+signal dog_release

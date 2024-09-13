@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const MAX_SPEED = 2000.0
+var MAX_SPEED = 2000.0
 const IMPULSE = 750.0
 const DECELERATION = 4000.0
 
@@ -41,6 +41,13 @@ func _ready():
 		playable = true
 		%Camera2D.enabled = false
 		)
+	SignalManager.dog_bite.connect(func():
+		MAX_SPEED = 400.0
+		%AnimationPlayer.play("Max run")
+		)
+	SignalManager.dog_release.connect(func():
+		MAX_SPEED = 2000.0
+		%AnimationPlayer.play("Run"))
 	if (!farnting_and_pooping):
 		visible = false
 		playable = false
