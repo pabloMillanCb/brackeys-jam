@@ -54,6 +54,12 @@ func _ready():
 	SignalManager.dog_release.connect(func():
 		MAX_SPEED = 2000.0
 		%AnimationPlayer.play("Run"))
+	SignalManager.changeMap.connect(func():
+		playable = false
+		$Camera2D/Randomsakuga.visible = true
+		$Camera2D/Randomsakuga/AnimationPlayer.play("default"))
+	SignalManager.sakuga_end.connect(func():
+		playable = true)
 	if (!farnting_and_pooping):
 		visible = false
 		playable = false
@@ -76,10 +82,10 @@ func _physics_process(delta):
 
 func start_pooping():
 	%AnimationPlayer.play("Run")
-	%Camera2D.limit_right = 18785
+	%Camera2D.limit_right = 21000
 	%Camera2D.position.x = -300
 	%Sprite2D.flip_h = true
-	%Camera2D.position_smoothing_enabled = true
+	%Camera2D.position_smoothing_enabled = false
 
 func walk_controls(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
