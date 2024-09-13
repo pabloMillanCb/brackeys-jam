@@ -14,9 +14,6 @@ signal froggerStart;
 signal dog_bite
 signal dog_release
 signal keyhole_collided
-<<<<<<< Style-changes
 signal sakuga_end
-=======
 signal init_end
 signal player_disapear
->>>>>>> main
