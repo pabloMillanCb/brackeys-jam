@@ -8,6 +8,34 @@
 [ext_resource type="AudioStream" uid="uid://bc86acng7o4tg" path="res://assets/clank.mp3" id="5_6rxxa"]
 [ext_resource type="AudioStream" uid="uid://c34acbltkoa5m" path="res://assets/bomb.mp3" id="7_n842a"]
 
+[sub_resource type="Animation" id="Animation_oyqlt"]
+resource_name = "begin"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Black:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_ssrqk"]
 length = 0.2
 loop_mode = 1
@@ -145,34 +173,6 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_oyqlt"]
-resource_name = "begin"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Black:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.4, 2, 2.1, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Black:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.4, 2.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyhkh"]
 _data = {
 "begin": SubResource("Animation_oyqlt"),
@@ -197,7 +197,6 @@ texture = ExtResource("2_f5hia")
 offset = Vector2(38, -75)
 hframes = 3
 vframes = 3
-frame = 3
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -245,7 +244,8 @@ stream = ExtResource("4_xr517")
 volume_db = 10.0
 
 [node name="Black" type="ColorRect" parent="."]
-modulate = Color(0, 0, 0, 1)
+visible = false
+modulate = Color(0, 0, 0, 1.2517e-06)
 offset_right = 1108.0
 offset_bottom = 807.0
 color = Color(0, 0, 0, 1)
