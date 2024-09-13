@@ -12,5 +12,18 @@ func _process(delta):
 
 func _on_semaphore_area_body_entered(body):
 	print("ayuda")
+	$Timer.start()
+	$semaphore_area/CollisionShape2D.disabled = true
+
+
+func _on_timer_timeout():
 	SignalManager.froggerStart.emit();
-	
+
+
+func _on_timer_2_timeout():
+	SignalManager.keyStart.emit();
+
+
+func _on_home_area_body_entered(body):
+	$Timer2.start()
+	$home_area/CollisionShape2D.disabled = true

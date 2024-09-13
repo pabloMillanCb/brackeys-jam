@@ -37,9 +37,15 @@ func _ready():
 		playable = true
 		)
 	SignalManager.froggerStart.connect(func():
+		visible = false
+		playable = false
+		position.x = 10600
+		%Camera2D.enabled = false
+		)
+	SignalManager.froggerEnd.connect(func():
 		visible = true
 		playable = true
-		%Camera2D.enabled = false
+		%Camera2D.enabled = true
 		)
 	SignalManager.dog_bite.connect(func():
 		MAX_SPEED = 400.0
