@@ -97,7 +97,7 @@ func play_final_fart():
 
 func show_credits():
 	$Black.visible = true
-	print("enddddd")
+	$CanvasLayer.visible = true
 
 func play_clank():
 	var pitch = randf_range(0.8, 1.2)
