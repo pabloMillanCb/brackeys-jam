@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmllia8wwueoe"]
+[gd_scene load_steps=10 format=3 uid="uid://cmllia8wwueoe"]
 
 [ext_resource type="Script" path="res://scenes/dog/Dog.gd" id="1_o2m6i"]
 [ext_resource type="Texture2D" uid="uid://dbxvm3din1bva" path="res://scenes/dog/dog.png" id="2_lqqy3"]
+[ext_resource type="AudioStream" uid="uid://fiy2gpwavma7" path="res://assets/angry-dog.mp3" id="3_ifkqo"]
+[ext_resource type="AudioStream" uid="uid://bialtux0lrmye" path="res://assets/scream-dog.mp3" id="3_silhp"]
 
 [sub_resource type="Animation" id="Animation_7l85a"]
 length = 0.2
@@ -33,7 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_84xyi"]
 resource_name = "fly"
-length = 1.5
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,13 +67,28 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(2.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"die"
 }]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fly")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.46,
+"stream": ExtResource("3_silhp")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_odww5"]
 length = 0.2
@@ -152,6 +169,12 @@ shape = SubResource("RectangleShape2D_tp5rd")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.2
+
+[node name="Grr" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ifkqo")
+volume_db = 17.0
+
+[node name="Fly" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

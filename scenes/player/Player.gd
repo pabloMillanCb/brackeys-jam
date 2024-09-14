@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 400.0
 var MAX_SPEED = 2000.0
 const IMPULSE = 750.0
 const DECELERATION = 4000.0
@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var foot = 2
 var timer = 0
 var value = 0
-
+var current_speed = 0
 var camera_zoom = 1
 var target_zoom = 1
 
@@ -91,20 +91,32 @@ func walk_controls(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		%AnimationPlayer.play("Walk")
-		velocity.x = direction * SPEED
+		current_speed += delta*1500.0
+		current_speed = min(current_speed, SPEED)
+		velocity.x = direction * current_speed
 		if(direction == -1):
 			%Sprite2D.flip_h = true
 		else:
 			%Sprite2D.flip_h = false
 	else:
 		%AnimationPlayer.stop()
+		current_speed = 0
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func make_footstep():
+	if (playable):
+		var pitch = randf_range(0.8, 1.2)
+		%Step.pitch_scale = pitch
+		%Step.play()
 	
 func fart_and_poop_controls(delta):
 	if (Input.is_action_just_pressed('ui_left') or Input.is_action_just_pressed('ui_right')):
 		velocity.x -= IMPULSE
+		var pitch = randf_range(0.8, 1.2)
+		%RunStep.pitch_scale = pitch
+		%RunStep.play()
 
 	velocity.x += DECELERATION*delta
 	velocity.x = clampf(velocity.x, -MAX_SPEED, 0)

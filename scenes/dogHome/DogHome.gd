@@ -8,3 +8,4 @@ func show_happy_dog():
 	print("dogo")
 	if ($HouseWODog.visible == true):
 		$AnimationPlayer.play("show_dog")
+		$guau.play()

@@ -13,6 +13,7 @@ func _ready():
 func door_open():
 	$ExitTimer.start()
 	$AnimationPlayer.play("House_open")
+	$Open.play()
 
 
 func _on_timer_timeout():
@@ -26,6 +27,7 @@ func _on_exit_timer_timeout():
 
 func _on_close_timer_timeout():
 	$AnimationPlayer.play("House")
+	$Close.play()
 
 func _player_disapear():
 	SignalManager.player_disapear.emit()

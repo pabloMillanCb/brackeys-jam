@@ -12,6 +12,7 @@ func go_green():
 	$Red.visible = false
 	$Green.visible = true
 	%CollisionShape2D.disabled = true
+	$GreenSound.play()
 
 
 func _on_timer_timeout():

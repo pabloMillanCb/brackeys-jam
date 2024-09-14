@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjqcs1abavllx"]
+[gd_scene load_steps=14 format=3 uid="uid://bjqcs1abavllx"]
 
 [ext_resource type="Script" path="res://scenes/home/Home.gd" id="1_ojsgl"]
 [ext_resource type="Texture2D" uid="uid://csfrdlo2xkdy" path="res://assets/house.png" id="2_jp8em"]
+[ext_resource type="AudioStream" uid="uid://de1dotagjkmof" path="res://assets/open-Door.mp3" id="3_kems7"]
+[ext_resource type="AudioStream" uid="uid://bi1tt3566upjp" path="res://assets/door-slam.mp3" id="4_dndg1"]
+[ext_resource type="AudioStream" uid="uid://4pivlekoyo2r" path="res://assets/doorClose_4.ogg" id="5_42tce"]
 
 [sub_resource type="Animation" id="Animation_p5qai"]
 length = 1.1
@@ -203,6 +206,25 @@ tracks/1/keys = {
 "method": &"_on_enter_house"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.46,
+"start_offset": 0.17,
+"stream": ExtResource("3_kems7")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_dndg1")
+}],
+"times": PackedFloat32Array(0.35, 1.5)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fw5yx"]
 _data = {
@@ -257,6 +279,15 @@ one_shot = true
 
 [node name="CloseTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kems7")
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_42tce")
 
 [connection signal="timeout" from="OpenDoorTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ExitTimer" to="." method="_on_exit_timer_timeout"]

@@ -1,7 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv7xwtw3xvx1t"]
+[gd_scene load_steps=20 format=3 uid="uid://cv7xwtw3xvx1t"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_plctu"]
 [ext_resource type="PackedScene" uid="uid://cbbftbfaali57" path="res://scenes/randomsakuga/randomsakuga.tscn" id="2_2fl8y"]
+[ext_resource type="AudioStream" uid="uid://diamkkefyaikx" path="res://assets/impactWood_medium_000.ogg" id="3_07tyk"]
+[ext_resource type="AudioStream" uid="uid://colthhqsurul2" path="res://assets/footstep_concrete_003.ogg" id="3_c1488"]
+[ext_resource type="AudioStream" uid="uid://de12kl6aeip5y" path="res://assets/stomach.mp3" id="4_cqqov"]
+[ext_resource type="AudioStream" uid="uid://byg8kgh4r86pc" path="res://assets/tragar.mp3" id="4_srp8p"]
+[ext_resource type="AudioStream" uid="uid://cyw1bdg6v02a8" path="res://assets/fast-burp-106002.mp3" id="5_axmb1"]
+[ext_resource type="AudioStream" uid="uid://cfr2a8830wkfo" path="res://assets/chew.mp3" id="5_kf7h5"]
+[ext_resource type="AudioStream" uid="uid://cwa6784skm2l2" path="res://assets/munching-food.mp3" id="5_smp7g"]
+[ext_resource type="AudioStream" uid="uid://2jptkjltecnp" path="res://assets/sounds/fart-83471.mp3" id="8_l8rym"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xhhqf"]
 load_path = "res://.godot/imported/b2.png-af01b098220a6ea5ccc8646adafa452c.ctex"
@@ -33,6 +41,45 @@ tracks/1/keys = {
 "update": 1,
 "values": [2, 3, 4, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 7, 9, 10, 11]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Sprite2D/../Sounds/Eat")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.16,
+"start_offset": 0.18,
+"stream": ExtResource("5_kf7h5")
+}, {
+"end_offset": 0.02,
+"start_offset": 0.13,
+"stream": ExtResource("5_smp7g")
+}, {
+"end_offset": 0.04,
+"start_offset": 0.13,
+"stream": ExtResource("5_smp7g")
+}, {
+"end_offset": 0.04,
+"start_offset": 0.13,
+"stream": ExtResource("5_smp7g")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_srp8p")
+}, {
+"end_offset": 0.46,
+"start_offset": 0.11,
+"stream": ExtResource("5_axmb1")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_cqqov")
+}],
+"times": PackedFloat32Array(1.6, 2.5, 3.1, 3.7, 4.9, 6.3, 7.75)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_02p6p"]
 length = 0.2
@@ -173,6 +220,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Sprite2D/..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_footstep"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m7u0t"]
 _data = {
@@ -241,6 +302,28 @@ visible = false
 [node name="CameraZoomTimer" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Step" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("3_c1488")
+autoplay = true
+
+[node name="RunStep" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("3_07tyk")
+volume_db = 4.0
+
+[node name="Eat" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="Munch" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_smp7g")
+
+[node name="Fart" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_l8rym")
+
+[node name="Belly" type="AudioStreamPlayer" parent="Sounds"]
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="CameraZoomTimer" to="." method="_on_camera_zoom_timer_timeout"]

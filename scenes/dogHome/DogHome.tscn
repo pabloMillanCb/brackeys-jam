@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfon43fbqoo35"]
+[gd_scene load_steps=8 format=3 uid="uid://cfon43fbqoo35"]
 
 [ext_resource type="Script" path="res://scenes/dogHome/DogHome.gd" id="1_62mij"]
 [ext_resource type="Texture2D" uid="uid://irikmv8gtsyq" path="res://assets/map/dog_house1.png" id="2_uuoey"]
 [ext_resource type="Texture2D" uid="uid://bnemjaya8omp4" path="res://assets/map/dog_house2.png" id="3_57vtx"]
+[ext_resource type="AudioStream" uid="uid://b4xmiap50lqig" path="res://assets/dog-bark.mp3" id="4_neybb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ya8h"]
 size = Vector2(185, 335)
@@ -90,5 +91,8 @@ shape = SubResource("RectangleShape2D_0ya8h")
 libraries = {
 "": SubResource("AnimationLibrary_dsc4f")
 }
+
+[node name="guau" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_neybb")
 
 [connection signal="body_entered" from="HappyDogTrigger" to="." method="_on_happy_dog_trigger_body_entered"]

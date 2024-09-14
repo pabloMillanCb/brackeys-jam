@@ -2,7 +2,7 @@ extends Sprite2D
 
 var original_position
 var time_passed = 0.0
-var move_up_down_speed = 5.0
+var move_up_down_speed = 7.0
 var shake_intensity = 30.0
 var is_moving_left = false
 var move_speed = 3000
@@ -19,8 +19,9 @@ func _process(delta):
 		var shake_x = randf() * shake_intensity - (shake_intensity / 2)
 		position = Vector2(original_position.x + shake_x, new_y)
 		
-	if Input.is_action_just_pressed("ui_left"):  # "Space" pressed
+	if Input.is_action_just_pressed("ui_left") and %Cooldown.time_left == 0:  # "Space" pressed
 		is_moving_left = true
+		%Cooldown.start()
 
 	if is_moving_left:
 		position.x -= move_speed * delta
@@ -34,6 +35,7 @@ func _on_area_entered(area):
 		move_speed = 0
 		$"../keyHoleAnim".play("Depierto");
 		$"../keyHoleAnim2".play("Depierto");
+		%Unlock.play()
 		$"../Timer".start()
 	
 	elif area.name == "Area2D":  # If it collides with the other Area2D
