@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2fx1mfojm5cm"]
+[gd_scene load_steps=8 format=3 uid="uid://c2fx1mfojm5cm"]
 
 [ext_resource type="Texture2D" uid="uid://c1truygnsh138" path="res://assets/map/traffic_red.png" id="1_innoh"]
 [ext_resource type="Script" path="res://scenes/traffic/Traffic.gd" id="1_q1lga"]
 [ext_resource type="Texture2D" uid="uid://bnx6rbhlnkawc" path="res://assets/map/street.png" id="2_a4ie3"]
 [ext_resource type="Texture2D" uid="uid://47ti7a4rnlec" path="res://assets/map/traffic_green.png" id="2_iweds"]
+[ext_resource type="AudioStream" uid="uid://bgfdr52hbdilu" path="res://assets/traffick.mp3" id="5_6qhm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_et1gr"]
 size = Vector2(610, 248)
@@ -50,6 +51,9 @@ shape = SubResource("RectangleShape2D_lad2j")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="GreenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6qhm4")
 
 [connection signal="body_entered" from="OnGoArea" to="." method="_on_on_go_area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

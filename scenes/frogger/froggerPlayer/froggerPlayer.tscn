@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvakh2ln42fc5"]
+[gd_scene load_steps=11 format=3 uid="uid://bvakh2ln42fc5"]
 
 [ext_resource type="Script" path="res://scenes/frogger/froggerPlayer/froggerPlayer.gd" id="1_1atpn"]
 [ext_resource type="Texture2D" uid="uid://b1mjgv65m76gf" path="res://assets/froggerplayer.png" id="2_2mahi"]
 [ext_resource type="AudioStream" uid="uid://sgxncjng37ik" path="res://assets/frogger/fart-with-reverb.mp3" id="3_k85dp"]
+[ext_resource type="AudioStream" uid="uid://colthhqsurul2" path="res://assets/footstep_concrete_003.ogg" id="4_l5hl7"]
 
 [sub_resource type="Animation" id="Animation_3p0t3"]
 length = 0.2
@@ -170,3 +171,7 @@ shape = SubResource("RectangleShape2D_g0iis")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_k85dp")
+
+[node name="Step" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l5hl7")
+volume_db = 5.0

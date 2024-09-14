@@ -1,5 +1,8 @@
 extends Node2D
 
+var walking = true
+var farting = false
+
 func _ready():
 	# We connect to the signal
 	SignalManager.changeMap.connect(change_map_received)
@@ -8,12 +11,17 @@ func _ready():
 	SignalManager.enter_home.connect(enter_home_received)
 	SignalManager.keyhole_collided.connect(keyhole_received)
 	SignalManager.init_end.connect(house_entered)
+	SignalManager.enter_kebab.connect(func(): walking = false)
 
 func _process(delta):
-	return
+	if (walking and !$City.playing):
+		$City.play()
+	elif (farting and !$Music.playing):
+		$Music.play()
 	
 func change_map_received():
 	$HappyMap.queue_free()
+	$Music.play()
 	# Now we load the next map
 	$HorrorMap.visible = true
 	$HorrorMap.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -50,3 +58,5 @@ func house_entered():
 	var end = preload("res://scenes/endgame/Endgame.tscn").instantiate()
 	$HorrorMap.queue_free()
 	add_child(end)
+	farting = false
+	$Music.stop()

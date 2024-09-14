@@ -13,6 +13,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	player = body
 	$AnimationPlayer.play("Bite")
+	$Grr.play()
 	$Area2D.queue_free()
 	$Timer.start()
 	SignalManager.dog_bite.emit()

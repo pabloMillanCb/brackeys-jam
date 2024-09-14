@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfww0b8wfgw8c"]
+[gd_scene load_steps=8 format=3 uid="uid://bfww0b8wfgw8c"]
 
 [ext_resource type="PackedScene" uid="uid://cgnt6dbsli828" path="res://scenes/happyMap/happyMap.tscn" id="1_gxvxm"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_l6h5b"]
 [ext_resource type="PackedScene" uid="uid://cceqm1jimlkqc" path="res://scenes/letMeIn/letMeIn.tscn" id="3_3i0tk"]
 [ext_resource type="PackedScene" uid="uid://b7wu80aewjkxn" path="res://scenes/frogger/frogger.tscn" id="3_n1h0f"]
 [ext_resource type="PackedScene" uid="uid://dalhdrebwvkyp" path="res://scenes/horrorMap/horrorMap.tscn" id="4_1r75q"]
+[ext_resource type="AudioStream" uid="uid://6bvydc0rmf58" path="res://assets/pajaros-mananeros-223790.mp3" id="6_jdjlp"]
+[ext_resource type="AudioStream" uid="uid://dc04uinlvopwh" path="res://assets/requiem.mp3" id="7_wq3xq"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_l6h5b")
@@ -22,3 +24,11 @@ visible = false
 [node name="HorrorMap" parent="." instance=ExtResource("4_1r75q")]
 process_mode = 4
 visible = false
+
+[node name="City" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jdjlp")
+volume_db = 5.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wq3xq")
+volume_db = -6.0
