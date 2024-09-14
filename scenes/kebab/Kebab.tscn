@@ -12,7 +12,7 @@ size = Vector2(68, 165)
 
 [sub_resource type="Animation" id="Animation_6x10j"]
 resource_name = "buy_kebab"
-length = 5.0
+length = 5.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -101,11 +101,11 @@ tracks/5/keys = {
 "start_offset": 0.193931,
 "stream": ExtResource("4_xcrcv")
 }, {
-"end_offset": 0.184697,
-"start_offset": 0.0738787,
+"end_offset": 0.0,
+"start_offset": 0.0925013,
 "stream": ExtResource("5_k11wd")
 }],
-"times": PackedFloat32Array(0.6, 0.973879, 3.9, 4.67388)
+"times": PackedFloat32Array(0.6, 0.973879, 3.9, 4.8)
 }
 tracks/5/use_blend = true
 

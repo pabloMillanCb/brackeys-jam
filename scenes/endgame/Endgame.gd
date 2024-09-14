@@ -98,6 +98,7 @@ func play_final_fart():
 func show_credits():
 	$Black.visible = true
 	$CanvasLayer.visible = true
+	$Credits2.start()
 
 func play_clank():
 	var pitch = randf_range(0.8, 1.2)
@@ -107,3 +108,7 @@ func play_clank():
 func _on_song_timeout():
 	$AnimationPlayer.play("caca3")
 	camera.zoom = Vector2(1, 1)
+
+
+func _on_credits_2_timeout():
+	%Credits_2.queue_free()

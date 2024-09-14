@@ -117,6 +117,8 @@ func fart_and_poop_controls(delta):
 		var pitch = randf_range(0.8, 1.2)
 		%RunStep.pitch_scale = pitch
 		%RunStep.play()
+		%Sprite2D/Squish.stop()
+		%Sprite2D/Squish.play("squish")
 
 	velocity.x += DECELERATION*delta
 	velocity.x = clampf(velocity.x, -MAX_SPEED, 0)
