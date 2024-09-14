@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cg5sek56pt8bb"]
+[gd_scene load_steps=17 format=3 uid="uid://cg5sek56pt8bb"]
 
 [ext_resource type="Script" path="res://scenes/endgame/Endgame.gd" id="1_msk27"]
 [ext_resource type="Texture2D" uid="uid://chny2vr615djg" path="res://assets/cagar.png" id="2_f5hia"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bc86acng7o4tg" path="res://assets/clank.mp3" id="5_6rxxa"]
 [ext_resource type="AudioStream" uid="uid://c34acbltkoa5m" path="res://assets/bomb.mp3" id="7_n842a"]
 [ext_resource type="PackedScene" uid="uid://cgpav4yp2uke2" path="res://scenes/arrows/Arrows.tscn" id="8_7qybd"]
+[ext_resource type="Texture2D" uid="uid://btkhi6qr6rsdr" path="res://assets/credits.png" id="9_hdvcn"]
 
 [sub_resource type="Animation" id="Animation_oyqlt"]
 resource_name = "begin"
@@ -182,6 +183,39 @@ _data = {
 "caca3": SubResource("Animation_ewv0y")
 }
 
+[sub_resource type="Animation" id="Animation_x7qw0"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Credits_:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Credits_:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjsom"]
+_data = {
+"default": SubResource("Animation_x7qw0")
+}
+
 [node name="Endgame" type="Node2D"]
 script = ExtResource("1_msk27")
 
@@ -258,5 +292,40 @@ stream = ExtResource("5_6rxxa")
 [node name="Bomb" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_n842a")
 volume_db = -5.0
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yjsom")
+}
+autoplay = "default"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Credits_" type="Sprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(546, 427)
+scale = Vector2(0.635338, 0.635338)
+texture = ExtResource("9_hdvcn")
+hframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer2",
+"slice": "",
+"source": "C:/Users/Pablo/Downloads/credits.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"slice_section": false
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8f15696d15bc7225cb8a63169516b0c7"
 
 [connection signal="timeout" from="Song" to="." method="_on_song_timeout"]
