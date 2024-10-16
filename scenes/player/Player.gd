@@ -68,9 +68,6 @@ func _ready():
 		
 	SignalManager.player_disapear.connect(func(): visible = false)
 
-func _input(_event):
-	if Input.is_key_pressed(KEY_C):
-		start_pooping()
 		
 func _physics_process(delta):
 	if (playable):

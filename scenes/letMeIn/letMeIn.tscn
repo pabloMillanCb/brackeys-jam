@@ -141,7 +141,7 @@ size = Vector2(43.8546, 25)
 size = Vector2(17.9548, 11.8214)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykmg2"]
-size = Vector2(69, 794)
+size = Vector2(1676, 794)
 
 [node name="LetMeIn" type="Node2D"]
 script = ExtResource("1_x430j")
@@ -244,7 +244,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "7e63eb62c515664890f2bbc9c2e5e0fd"
 position = Vector2(0, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(34.5, -1)
+position = Vector2(-769, -1)
 shape = SubResource("RectangleShape2D_ykmg2")
 
 [node name="Fart" type="AudioStreamPlayer" parent="."]

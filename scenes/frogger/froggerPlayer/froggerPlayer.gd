@@ -10,8 +10,9 @@ func _ready():
 	
 func _physics_process(delta):
 	
+	const LEFT_MARGIN_BOUND = 50
 
-	if Input.is_action_just_pressed("ui_left") && position.x > 50 && position.y <= 530 && position.y >= 130:
+	if Input.is_action_just_pressed("ui_left") && position.x > LEFT_MARGIN_BOUND && position.y <= 530 && position.y >= 130:
 		target_position -= transform.x * 200
 		$Step.play()
 		moving = true

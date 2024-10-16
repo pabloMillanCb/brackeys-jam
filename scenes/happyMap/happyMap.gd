@@ -2,8 +2,7 @@ extends Node2D
 
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_ENTER):
-		change_map();
+	pass
 
 func change_map():
 	SignalManager.changeMap.emit();
